@@ -32,10 +32,10 @@ A full-stack Task Management System built with MongoDB, Express.js, React.js, an
 ```
 backend/
   config/          # DB connection
-  controllers/      # authController (register, login, logout)
+  controllers/      # userController (register, login, logout)
   middlewares/       # authMiddleware, validateMiddleware, errorMiddleware
   models/            # userModel (Mongoose schema)
-  routes/            # authRoutes
+  routes/            # userRoutes
   validators/         # userValidator (Zod schemas)
   app.js / server.js
 ```
@@ -48,8 +48,7 @@ Create a `.env` file (not committed) with:
 PORT=5000
 MONGO_URI=
 JWT_SECRET=
-JWT_EXPIRES_IN=7d
-NODE_ENV=development
+NODE_ENV=production
 ```
 
 ## 🧪 Running Locally
@@ -64,9 +63,9 @@ npm run dev
 
 | Method | Endpoint           | Description                      | Protected |
 | ------ | ------------------ | -------------------------------- | --------- |
-| POST   | /api/auth/register | Register a new user              | No        |
-| POST   | /api/auth/login    | Log in, sets JWT httpOnly cookie | No        |
-| POST   | /api/auth/logout   | Log out, clears the auth cookie  | No        |
+| POST   | /api/auth/user/register | Register a new user              | No        |
+| POST   | /api/auth/user/login    | Log in, sets JWT httpOnly cookie | No        |
+| POST   | /api/auth/user/logout   | Log out, clears the auth cookie  | No        |
 
 ## 🔜 Planned Next
 
