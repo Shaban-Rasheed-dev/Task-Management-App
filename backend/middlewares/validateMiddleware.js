@@ -1,0 +1,21 @@
+export const validateSchema = (schema) => async (req, res, next) => {
+  try {
+    const parseBody = await schema.parseAsync(req.body);
+    req.body = parseBody;
+    next();
+  } catch (err) {
+    const status = 422;
+    // console.log(err);
+    const message = "please filled the inputs properly";
+    const extraDetails = err.issues[0].message;
+    const error = {
+      status,
+      message,
+      extraDetails,
+    };
+    // console.log(msg);
+    console.log(error);
+
+    next(error);
+  }
+};
